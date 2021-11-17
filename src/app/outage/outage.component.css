@@ -1,9 +1,30 @@
 .log {
   margin-top: 2rem;
 }
+.border {
+  height: 100%;
+}
 .issue-container {
   margin-top: 2rem;
+  margin-bottom: 1rem;
+  display: flex;
+}
+.reasons-evidence {
+  flex: 1;
 }
 .title {
   margin-top: 1rem;
+}
+.img-robot {
+  width: 100px;
+}
+.evidence {
+  width: 100%;
+  margin-bottom: 1rem;
+}
+.log {
+  width: 100%;
+}
+.points {
+  margin-left: 0.5rem;
 }

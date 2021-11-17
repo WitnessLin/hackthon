@@ -1,78 +1,111 @@
 <div class="container overflow-hidden">
   <h1 class="display-5 text-center title">
-    AI System Issue Triage And Mitigate
+    AI System Issue Triage And Mitigate <img src="assets/img/hackthon.png" alt="..." class="img-robot">
   </h1>
-  <div class="row issue-container">
-    <div class="col-6">
-      <div class="p-3 border bg-light">
-        <label class="form-label">
-          Current Issues List:
-        </label>
-        <div class="list-group">
-          <!-- <a href="#" class="list-group-item list-group-item-action active" aria-current="true" (click)="">
-            <div class="d-flex w-100 justify-content-between">
-              <h5 class="mb-1">High GDA Response Time</h5>
-              <small>3 miutes ago</small>
-            </div>
-            <p class="mb-1">Some placeholder content in a paragraph.</p>
-            <small>And some small print.</small>
-          </a> -->
-          <a href="#" class="list-group-item list-group-item-action" *ngFor="let issue of issues" (click)="selectIssue(issue)">
-            <div class="d-flex w-100 justify-content-between">
-              <h5 class="mb-1">{{ issue.issueName }}</h5>
-              <small class="text-muted">{{ issue.time }}</small>
-            </div>
-            <p class="mb-1">Some placeholder content in a paragraph.</p>
-            <small class="text-muted">And some muted small print.</small>
-          </a>
-          <!-- <a href="#" class="list-group-item list-group-item-action">
-            <div class="d-flex w-100 justify-content-between">
-              <h5 class="mb-1">Too many AMQP messages in queue</h5>
-              <small class="text-muted">30 minutes ago</small>
-            </div>
-            <p class="mb-1">Some placeholder content in a paragraph.</p>
-            <small class="text-muted">And some muted small print.</small>
-          </a> -->
-        </div>
-      </div>
-    </div>
-    <div class="col-6">
-      <div class="p-3 border bg-light">
-        <div class="solution">
+  <div class="">
+    <div class="issue-container">
+      <div class="">
+        <div class="p-3 border bg-light" style="margin-right: 1rem;">
           <label class="form-label">
-            All based solutions:
+            Current Issues List:
           </label>
-          <ol class="list-group list-group-numbered">
-            <li class="list-group-item" *ngFor="let solution of solutionList">{{ solution.name }}
-              <span *ngFor="let item of [].constructor(solution.star)">
-                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-star-fill" viewBox="0 0 16 16">
-                  <path d="M3.612 15.443c-.386.198-.824-.149-.746-.592l.83-4.73L.173 6.765c-.329-.314-.158-.888.283-.95l4.898-.696L7.538.792c.197-.39.73-.39.927 0l2.184 4.327 4.898.696c.441.062.612.636.282.95l-3.522 3.356.83 4.73c.078.443-.36.79-.746.592L8 13.187l-4.389 2.256z"/>
-                </svg>
-              </span>
-            </li>
-          </ol>
+          <div class="list-group">
+            <!-- <a href="#" class="list-group-item list-group-item-action active" aria-current="true" (click)="">
+              <div class="d-flex w-100 justify-content-between">
+                <h5 class="mb-1">High GDA Response Time</h5>
+                <small>3 miutes ago</small>
+              </div>
+              <p class="mb-1">Some placeholder content in a paragraph.</p>
+              <small>And some small print.</small>
+            </a> -->
+            <a href="#" class="list-group-item list-group-item-action" *ngFor="let issue of issues"
+              (click)="selectIssue(issue)">
+              <div class="d-flex w-100 justify-content-between">
+                <h5 class="mb-1">{{ issue.issueName }}</h5>
+                <small class="text-muted">{{ issue.time }}</small>
+              </div>
+              <p class="mb-1">{{ issue.description }}</p>
+            </a>
+            <!-- <a href="#" class="list-group-item list-group-item-action">
+              <div class="d-flex w-100 justify-content-between">
+                <h5 class="mb-1">Too many AMQP messages in queue</h5>
+                <small class="text-muted">30 minutes ago</small>
+              </div>
+              <p class="mb-1">Some placeholder content in a paragraph.</p>
+              <small class="text-muted">And some muted small print.</small>
+            </a> -->
+          </div>
         </div>
-        <div class="log">
-          <label class="form-label">
-            Manual Operation Portal:
-          </label>
+      </div>
+      <div class="reasons-evidence">
+        <div class="" style="margin-bottom: 1rem;">
+          <div class="p-3 border bg-light">
+            <label class="form-label">
+              Possible Reasons:
+            </label>
+            <ol class="list-group list-group-numbered">
+              <li class="list-group-item" *ngFor="let reason of reasons">{{ reason }}
+              </li>
+            </ol>
+          </div>
+        </div>
+        <div class="">
+          <div class="p-3 border bg-light">
+            <div class="solution">
+              <label class="form-label">
+                AI based solutions:
+              </label>
+              <ol class="list-group list-group-numbered">
+                <li class="list-group-item" *ngFor="let solution of solutionList">{{ solution.name }}
+                  <span *ngFor="let item of [].constructor(solution.star)">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                      class="bi bi-star-fill" viewBox="0 0 16 16">
+                      <path
+                        d="M3.612 15.443c-.386.198-.824-.149-.746-.592l.83-4.73L.173 6.765c-.329-.314-.158-.888.283-.95l4.898-.696L7.538.792c.197-.39.73-.39.927 0l2.184 4.327 4.898.696c.441.062.612.636.282.95l-3.522 3.356.83 4.73c.078.443-.36.79-.746.592L8 13.187l-4.389 2.256z" />
+                    </svg>
+                  </span>
+                  <span class="points">{{ solution.points }}</span>
+                  <ul>
+                    <li *ngFor="let step of solution.steps">{{ step }}</li>
+                </ul>
+                </li>
+              </ol>
+            </div>
+            <!-- <div class="log" *ngIf="issue === 'highGDAResponseTime'">
+              <label class="form-label">
+                Manual Operation Portal:
+              </label>
+    
+            </div> -->
+          </div>
         </div>
       </div>
     </div>
-    <div class="col-6">
-      <div class="p-3 border bg-light">
-        <label class="form-label">
-          Possible Reasons:
-        </label>
-        <div>
-          {{ reasons }}
-        </div>
-      </div>
-    </div>
-    <div class="col-6">
+
+    <div class="">
       <div class="p-3 border bg-light">
         <label class="form-label">
           Evidence/Details:
+          <img *ngFor="let evidence of evidenceList" src="{{evidence}}" alt="..." class="evidence">
+          <textarea *ngIf="issue === 'highGDAResponseTime'" class="form-control rounded-0" id="log" rows="10">
+2021-11-17T14:53:48.966+08:00 [RTR/6] [OUT] prd-generic-data-api-1636956169.s4.pcf.dell.com - [2021-11-17T06:53:48.959141192Z] "GET /api/objectMetric?objectIds=APM00212018627&metricType=PERFORMANCE_METRIC&interval=FIVE_MIN&timestamps=1637045400000&metrics=spaReadsFile%2CspbReadsFile%2CspaWritesFile%2CspbWritesFile%2CspaReadBytesFile%2CspbReadBytesFile%2CspaWriteBytesFile%2CspbWriteBytesFile%2CspaReadIoTimeFile%2CspaWriteIoTimeFile%2CspbReadIoTimeFile%2CspbWriteIoTimeFile%2CspaReadsBlock%2CspbReadsBlock%2CspaWritesBlock%2CspbWritesBlock%2CspaReadBlocksBlock%2CspbReadBlocksBlock%2CspaWriteBlocksBlock%2CspbWriteBlocksBlock%2CspaTotalIoTimeBlock%2CspbTotalIoTimeBlock%2CspaReadIoTimeBlock%2CspbReadIoTimeBlock%2CspaWriteIoTimeBlock%2CspbWriteIoTimeBlock%2CspaBusyTicks%2CspbBusyTicks%2CspaIdleTicks%2CspbIdleTicks%2CspaWaitTicks%2CspbWaitTicks%2CspaUptime%2CspbUptime%2Cuptime%2CspaReadBytesDataStore%2CspbReadBytesDataStore%2CspaReadsDataStore%2CspbReadsDataStore%2CspaTotalIoTimeDataStore%2CspbTotalIoTimeDataStore%2CspaWriteBytesDataStore%2CspbWriteBytesDataStore%2CspaWritesDataStore%2CspbWritesDataStore HTTP/1.1" 200 0 325 "-" "unity-data-processor/2.10.1 (Java/1.8.0_282)" "10.143.128.34:40865" "10.182.40.161:61062" x_forwarded_for:"10.182.40.90, 10.182.40.90, 10.143.128.34" x_forwarded_proto:"https" vcap_request_id:"5c853e0b-7aa1-4621-495b-278045c7f13d" response_time:0.006988 gorouter_time:0.000088 app_id:"ee08912a-d06a-4dbb-82e4-5c778f20bbcf" app_index:"7" x_cf_routererror:"-" dell_traceid:"-" traceparent:"-" x_b3_traceid:"9d55f919ec44c8d7" x_b3_spanid:"9d55f919ec44c8d7" x_b3_parentspanid:"-" b3:"9d55f919ec44c8d7-9d55f919ec44c8d7" 
+            
+2021-11-17T14:53:48.975+08:00 [RTR/8] [OUT] prd-generic-data-api-1636956169.s4.pcf.dell.com - [2021-11-17T06:53:48.964123480Z] "GET /api/objectMetric?objectIds=CIQC-ELMCIQ1021198X&kind=FACT&dataType=PERFORMANCE&dataSubType=SELF&interval=FIVE_MIN&from=1637130178981&to=1637131378981&metrics=freeMemory%2CtotalMemory HTTP/1.1" 200 0 179 "-" "ciq-collector-healthcheck/2.2.0 (Java/1.8.0_282)" "10.143.128.34:24801" "10.182.40.161:61062" x_forwarded_for:"10.182.40.184, 10.182.40.184, 10.143.128.34" x_forwarded_proto:"https" vcap_request_id:"165ec7e3-7821-41fb-5c6e-def9d350efef" response_time:0.011515 gorouter_time:0.000152 app_id:"ee08912a-d06a-4dbb-82e4-5c778f20bbcf" app_index:"7" x_cf_routererror:"-" dell_traceid:"-" traceparent:"-" x_b3_traceid:"169abd388d1a0f9d" x_b3_spanid:"169abd388d1a0f9d" x_b3_parentspanid:"-" b3:"169abd388d1a0f9d-169abd388d1a0f9d" 
+            
+2021-11-17T14:53:48.984+08:00 [RTR/5] [OUT] prd-generic-data-api-1636956169.s4.pcf.dell.com - [2021-11-17T06:53:48.979728187Z] "GET /api/objectDataBySystems?systems=ONEFS-006048507240e0c8c15c90055148422a44e1&objectType=STORAGE_POOL_TOTAL&dataType=STORAGE_POOL_TOTAL_CAPACITY_PREDICTION&perPage=2147483647 HTTP/1.1" 200 0 278 "-" "Sales-System-Adapter/1.12.2 (Java/1.8.0_282)" "10.143.128.34:29863" "10.182.40.176:61010" x_forwarded_for:"10.182.40.177, 10.182.40.177, 10.143.128.34" x_forwarded_proto:"https" vcap_request_id:"d06fbf57-8176-4c7f-416a-ebed69c38da4" response_time:0.004664 gorouter_time:0.000116 app_id:"ee08912a-d06a-4dbb-82e4-5c778f20bbcf" app_index:"1" x_cf_routererror:"-" dell_traceid:"-" traceparent:"-" x_b3_traceid:"c4fec289c10d1844" x_b3_spanid:"c4fec289c10d1844" x_b3_parentspanid:"-" b3:"c4fec289c10d1844-c4fec289c10d1844" 
+            
+2021-11-17T14:53:48.988+08:00 [RTR/11] [OUT] prd-generic-data-api-1636956169.s4.pcf.dell.com - [2021-11-17T06:53:48.982003804Z] "GET /api/objectMetric?objectIds=APM00194405421&metricType=PERFORMANCE_METRIC&interval=FIVE_MIN&timestamps=1637064600000&metrics=spaReadsFile%2CspbReadsFile%2CspaWritesFile%2CspbWritesFile%2CspaReadBytesFile%2CspbReadBytesFile%2CspaWriteBytesFile%2CspbWriteBytesFile%2CspaReadIoTimeFile%2CspaWriteIoTimeFile%2CspbReadIoTimeFile%2CspbWriteIoTimeFile%2CspaReadsBlock%2CspbReadsBlock%2CspaWritesBlock%2CspbWritesBlock%2CspaReadBlocksBlock%2CspbReadBlocksBlock%2CspaWriteBlocksBlock%2CspbWriteBlocksBlock%2CspaTotalIoTimeBlock%2CspbTotalIoTimeBlock%2CspaReadIoTimeBlock%2CspbReadIoTimeBlock%2CspaWriteIoTimeBlock%2CspbWriteIoTimeBlock%2CspaBusyTicks%2CspbBusyTicks%2CspaIdleTicks%2CspbIdleTicks%2CspaWaitTicks%2CspbWaitTicks%2CspaUptime%2CspbUptime%2Cuptime%2CspaReadBytesDataStore%2CspbReadBytesDataStore%2CspaReadsDataStore%2CspbReadsDataStore%2CspaTotalIoTimeDataStore%2CspbTotalIoTimeDataStore%2CspaWriteBytesDataStore%2CspbWriteBytesDataStore%2CspaWritesDataStore%2CspbWritesDataStore HTTP/1.1" 200 0 296 "-" "unity-data-processor/2.10.1 (Java/1.8.0_282)" "10.143.128.34:54771" "10.182.40.190:61058" x_forwarded_for:"10.182.40.182, 10.182.40.182, 10.143.128.34" x_forwarded_proto:"https" vcap_request_id:"605a8279-e212-466d-64ef-ee66769b3681" response_time:0.006566 gorouter_time:0.000131 app_id:"ee08912a-d06a-4dbb-82e4-5c778f20bbcf" app_index:"9" x_cf_routererror:"-" dell_traceid:"-" traceparent:"-" x_b3_traceid:"effa0fbb16eedf44" x_b3_spanid:"effa0fbb16eedf44" x_b3_parentspanid:"-" b3:"effa0fbb16eedf44-effa0fbb16eedf44" 
+            
+2021-11-17T14:53:48.993+08:00 [RTR/0] [OUT] prd-generic-data-api-1636956169.s4.pcf.dell.com - [2021-11-17T06:53:48.985773708Z] "GET /api/objectMetric?objectIds=ONEFS-0060169fc10035d4cd5caa1b0e9d93a07a96__NODE__13&kind=COUNTER&dataType=PERFORMANCE&dataSubType=LATENCY&interval=FIVE_MIN&from=1637131500000&to=1637131500000 HTTP/1.1" 200 0 37 "-" "isilon-data-processor/1.45.1 (Java/1.8.0_282)" "10.143.128.34:39821" "10.182.40.188:61014" x_forwarded_for:"10.182.40.77, 10.182.40.77, 10.143.128.34" x_forwarded_proto:"https" vcap_request_id:"4155073d-110b-424c-4468-9e455cff36ce" response_time:0.007451 gorouter_time:0.000150 app_id:"ee08912a-d06a-4dbb-82e4-5c778f20bbcf" app_index:"14" x_cf_routererror:"-" dell_traceid:"-" traceparent:"-" x_b3_traceid:"5e8b7f8eaf109f0a" x_b3_spanid:"5e8b7f8eaf109f0a" x_b3_parentspanid:"-" b3:"5e8b7f8eaf109f0a-5e8b7f8eaf109f0a" 
+            
+2021-11-17T14:53:49.000+08:00 [RTR/5] [OUT] prd-generic-data-api-1636956169.s4.pcf.dell.com - [2021-11-17T06:53:48.997274954Z] "GET /api/objectDataBySystems?systems=ONEFS-006048507240e0c8c15c90055148422a44e1&objectType=SYSTEM_HW&dataType=TELEMETRY&perPage=2147483647 HTTP/1.1" 200 0 242 "-" "Sales-System-Adapter/1.12.2 (Java/1.8.0_282)" "10.143.128.34:29863" "10.182.40.181:61074" x_forwarded_for:"10.182.40.177, 10.182.40.177, 10.143.128.34" x_forwarded_proto:"https" vcap_request_id:"d984bff8-7efc-41d3-5ded-f9338bb38514" response_time:0.003381 gorouter_time:0.000106 app_id:"ee08912a-d06a-4dbb-82e4-5c778f20bbcf" app_index:"10" x_cf_routererror:"-" dell_traceid:"-" traceparent:"-" x_b3_traceid:"54a53ab0ba4a792a" x_b3_spanid:"54a53ab0ba4a792a" x_b3_parentspanid:"-" b3:"54a53ab0ba4a792a-54a53ab0ba4a792a" 
+            
+2021-11-17T14:53:49.003+08:00 [RTR/11] [OUT] prd-generic-data-api-1636956169.s4.pcf.dell.com - [2021-11-17T06:53:48.978034304Z] "GET /api/objectMetric?objectIds=VMWARE-a19c1af4-1604-4daa-92f7-bcabf9865dfc__HOST_SYSTEM__f21ecb3a-f967-164f-9060-8ea7ee858b26&kind=INTERVAL&dataType=PERFORMANCE&dataSubType=DATASTORE&interval=FIVE_MIN&from=1636700027000&to=1636786427000&metrics=dsLatency%2CdsIops%2CdsIopsReadPerc%2CdsIoSize%2CdsIds HTTP/1.1" 200 0 11263 "-" "vmware-data-api/1.11.2 (Java/1.8.0_282)" "10.143.128.34:38881" "10.182.40.176:61010" x_forwarded_for:"10.182.40.87, 10.182.40.87, 10.143.128.34" x_forwarded_proto:"https" vcap_request_id:"e0c9ff70-a3fd-4f90-5822-b667ef15791c" response_time:0.025672 gorouter_time:0.000139 app_id:"ee08912a-d06a-4dbb-82e4-5c778f20bbcf" app_index:"1" x_cf_routererror:"-" dell_traceid:"-" traceparent:"-" x_b3_traceid:"c56d65466dc04276" x_b3_spanid:"c56d65466dc04276" x_b3_parentspanid:"-" b3:"c56d65466dc04276-c56d65466dc04276" 
+            
+2021-11-17T14:53:49.023+08:00 [RTR/10] [OUT] prd-generic-data-api-1636956169.s4.pcf.dell.com - [2021-11-17T06:53:49.013415095Z] "GET /api/objectMetric?objectIds=CKM00180901321&metricType=PERFORMANCE_METRIC&interval=FIVE_MIN&timestamps=1637080500000&metrics=spaReadsFile%2CspbReadsFile%2CspaWritesFile%2CspbWritesFile%2CspaReadBytesFile%2CspbReadBytesFile%2CspaWriteBytesFile%2CspbWriteBytesFile%2CspaReadIoTimeFile%2CspaWriteIoTimeFile%2CspbReadIoTimeFile%2CspbWriteIoTimeFile%2CspaReadsBlock%2CspbReadsBlock%2CspaWritesBlock%2CspbWritesBlock%2CspaReadBlocksBlock%2CspbReadBlocksBlock%2CspaWriteBlocksBlock%2CspbWriteBlocksBlock%2CspaTotalIoTimeBlock%2CspbTotalIoTimeBlock%2CspaReadIoTimeBlock%2CspbReadIoTimeBlock%2CspaWriteIoTimeBlock%2CspbWriteIoTimeBlock%2CspaBusyTicks%2CspbBusyTicks%2CspaIdleTicks%2CspbIdleTicks%2CspaWaitTicks%2CspbWaitTicks%2CspaUptime%2CspbUptime%2Cuptime%2CspaReadBytesDataStore%2CspbReadBytesDataStore%2CspaReadsDataStore%2CspbReadsDataStore%2CspaTotalIoTimeDataStore%2CspbTotalIoTimeDataStore%2CspaWriteBytesDataStore%2CspbWriteBytesDataStore%2CspaWritesDataStore%2CspbWritesDataStore HTTP/1.1" 200 0 253 "-" "unity-data-processor/2.10.1 (Java/1.8.0_282)" "10.143.128.34:57121" "10.182.40.79:61082" x_forwarded_for:"10.182.40.74, 10.182.40.74, 10.143.128.34" 
+            
+             
+                      </textarea>
         </label>
       </div>
     </div>
